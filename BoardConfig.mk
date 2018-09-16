@@ -45,7 +45,7 @@ TARGET_EXFAT_DRIVER := exfat
 RECOVERY_VARIANT := twrp
 TW_THEME := portrait_hdpi
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
-TW_BRIGHTNESS_PATH := "/sys/devices/platform/hisi_fb.524289/leds/lcd_backlight0"
+TW_BRIGHTNESS_PATH := "/sys/devices/platform/hisi_fb.524289/leds/lcd_backlight0/brightness"
 TW_MAX_BRIGHTNESS := 981
 TW_DEFAULT_BRIGHTNESS := 100
 TW_INCLUDE_NTFS_3G := true
@@ -53,9 +53,14 @@ TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_FBE := true
-TW_EXTRA_LANGUAGES := true
-TARGET_USES_LEGACY_ADB_INTERFACE := true
+TW_USE_NEW_MINADBD := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
+
+# Custom Battery Path
+TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/battery/power_supply/Battery
 
 # Include
 TARGET_SPECIFIC_HEADER_PATH := device/huawei/hi6250/include
+
+# SELinux Policies
+BOARD_SEPOLICY_DIRS := device/huawei/hi6250/sepolicy
